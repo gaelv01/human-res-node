@@ -4,7 +4,12 @@
   "description": "A final API REST project for human resources using ExpressJS",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaelv01/human-res-node.git"
   },
   "keywords": [
     "api",
@@ -12,9 +17,17 @@
     "express",
     "nodejs"
   ],
+  "bugs": {
+    "url": "https://github.com/gaelv01/human-res-node/issues"
+  },
+  "homepage": "https://github.com/gaelv01/human-res-node#readme",
   "author": "Gael Vivas",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.0.1"
   }
 }
