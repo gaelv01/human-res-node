@@ -1,0 +1,20 @@
+{
+  "name": "human-res-node",
+  "version": "1.0.0",
+  "description": "A final API REST project for human resources using ExpressJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "rest",
+    "express",
+    "nodejs"
+  ],
+  "author": "Gael Vivas",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
