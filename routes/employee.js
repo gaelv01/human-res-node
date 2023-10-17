@@ -64,4 +64,16 @@ employee.get('/all', async (req, res, next) => {
     return res.status(200).json({code: 200, message: employees})
 })
 
+
+// Search an employee
+employee.get('/search', async(req, res, next) => {
+    let query = `SELECT * FROM employee WHERE employee_name LIKE '%${req.body.employee_name}%'`;
+    const result = await db.query(query);
+    console.log(result)
+    if(result.length == 1){
+        return res.status(200).json({code: 200, message: result});
+    }
+    return res.status(404).json({ code: 404, message: 'Employee not found.'});
+})
+
 module.exports = employee;

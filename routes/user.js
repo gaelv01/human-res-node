@@ -19,7 +19,7 @@ user.post('/login', async (req, res, next) => {
             return res.status(200).json({ code: 200, message: token});
         }
         else {
-            return res.status(401).json({ code: 401, message: "User or password are incorrect."})
+            return res.status(200).json({ code: 401, message: "User or password are incorrect."})
         }
     }
     else {
