@@ -13,6 +13,9 @@ function init(){
         document.querySelector(".btn-add").addEventListener('click', function(){
             window.location.href = "add.html";
         });
+        document.querySelector(".btn-del").addEventListener('click', function(){
+            window.location.href = "delete.html";
+        });
     }
     else {
         window.location.href = 'index.html';

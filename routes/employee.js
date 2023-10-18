@@ -14,9 +14,9 @@ employee.post('/add', async (req, res, next) => {
         if (rows.affectedRows == 1){
             return res.status(201).json({ code: 201, message: "Employee inserted succesfully."});
         }
-        return res.status(500).json({ code: 500, message: "An error has occurred while inserting the employee."})
+        return res.status(200).json({ code: 400, message: "An error has occurred while inserting the employee."})
     }
-    return res.status(500).json({ code: 500, message: "Missing fields."})
+    return res.status(200).json({ code: 500, message: "Missing fields."})
 })
 
 // Delete an employee
@@ -66,14 +66,23 @@ employee.get('/all', async (req, res, next) => {
 
 
 // Search an employee
-employee.get('/search', async(req, res, next) => {
-    let query = `SELECT * FROM employee WHERE employee_name LIKE '%${req.body.employee_name}%'`;
-    const result = await db.query(query);
-    console.log(result)
-    if(result.length == 1){
-        return res.status(200).json({code: 200, message: result});
+employee.get('/search', async (req, res, next) => {
+    const searchTerm = req.query.employee_name;
+    let query = `SELECT * FROM employee WHERE employee_name LIKE "%${searchTerm}%"`;
+    
+    try {
+        const result = await db.query(query);
+        console.log(result);
+
+        if (result.length > 0) {
+            return res.status(200).json({ code: 200, message: result });
+        } else {
+            return res.status(200).json({ code: 404, message: 'Employee not found.' });
+        }
+    } catch (error) {
+        return res.status(500).json({ code: 500, message: 'Internal Server Error.' });
     }
-    return res.status(404).json({ code: 404, message: 'Employee not found.'});
-})
+});
+
 
 module.exports = employee;

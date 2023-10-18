@@ -23,7 +23,7 @@ user.post('/login', async (req, res, next) => {
         }
     }
     else {
-        return res.status(500).json({ code: 500, message: 'Missing fields.'})
+        return res.status(200).json({ code: 500, message: 'Missing fields.'})
     }
 
 })

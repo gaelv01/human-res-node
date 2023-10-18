@@ -29,8 +29,11 @@ function login() {
             localStorage.setItem("token", res.data.message);
             window.location.href = 'dashboard.html';
         }
-        else {
+        else if (res.data.code === 401){
             alert('Wrong mail or password.');
+        }
+        else{
+            alert("Please complete the required fields.")
         }
     }).catch(function (err){
         console.log(err);
