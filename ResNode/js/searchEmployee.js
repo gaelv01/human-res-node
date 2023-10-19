@@ -1,5 +1,4 @@
 window.onload = init;
-var headers = {};
 
 function init() {
     if (localStorage.getItem("token")) {
@@ -48,22 +47,6 @@ function displayEmployee(employees) {
             <tr><td>Employee Phone:</td><td> ${employee.employee_phone}</td></tr>
             <tr><td>Employee Email:</td><td> ${employee.employee_mail}</td></tr>
             <tr><td>Employee Address: </td><td>${employee.employee_dir}</td></tr>
-            <tr><td colspan='2'><button class='btn btn-danger' onclick="deleteEmployee(${employee.employee_id})">Delete</button></td></tr>
         `;
     }
 }
-
-function deleteEmployee(id) {
-    axios.delete(`http://localhost:3000/employee/delete/${id}`, {
-        headers: headers
-    })
-    .then(function (res) {
-        alert("Employee deleted successfully.");
-        window.location.reload();
-    })
-    .catch(function (err) {
-        alert("An error occurred while deleting.");
-        console.log(err);
-    });
-}
-

@@ -72,8 +72,6 @@ employee.get('/search', async (req, res, next) => {
     
     try {
         const result = await db.query(query);
-        console.log(result);
-
         if (result.length > 0) {
             return res.status(200).json({ code: 200, message: result });
         } else {

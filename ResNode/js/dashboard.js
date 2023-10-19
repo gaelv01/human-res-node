@@ -16,6 +16,12 @@ function init(){
         document.querySelector(".btn-del").addEventListener('click', function(){
             window.location.href = "delete.html";
         });
+        document.querySelector(".btn-edit").addEventListener('click', function (){
+            window.location.href = "edit.html";
+        })
+        document.querySelector(".btn-search").addEventListener('click', function(){
+            window.location.href = "search.html";
+        })
     }
     else {
         window.location.href = 'index.html';
