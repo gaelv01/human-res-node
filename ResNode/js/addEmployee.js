@@ -1,6 +1,4 @@
 window.onload = init;
-var headers = {};
-var url = 'http://localhost:3000';
 
 function init() {
     if (localStorage.getItem("token")) {
@@ -30,17 +28,17 @@ function addEmployee() {
     }, {
         headers: headers
     })
-    .then(function (res) {
-        if (res.data.code === 201) {
-            alert('Employee added successfully.');
-            Window.location.href = 'dashboard.html';
-        } else if (res.data.code === 400) {
-            alert('Error while adding employee.');
-        } else {
-            alert("Please fill all the fields.")
-        }
-    })
-    .catch(function (err) {
-        console.log(err);
-    });
+        .then(function (res) {
+            if (res.data.code === 201) {
+                alert('Employee added successfully.');
+                window.location.href = 'dashboard.html';
+            } else if (res.data.code === 400) {
+                alert('Error while adding employee.');
+            } else {
+                alert("Please fill all the fields.")
+            }
+        })
+        .catch(function (err) {
+            console.log(err);
+        });
 }

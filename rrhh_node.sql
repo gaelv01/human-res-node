@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2023 a las 21:12:54
+-- Tiempo de generación: 24-10-2023 a las 23:48:34
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -42,7 +42,9 @@ CREATE TABLE `employee` (
 
 INSERT INTO `employee` (`employee_id`, `employee_name`, `employee_lastname`, `employee_phone`, `employee_mail`, `employee_dir`) VALUES
 (1, 'EDUARDO', 'PINEDA MENDOZA', '4423876754', 'eduardopm@gmail.com', 'AV. LOZANO #126 INT #1, FRACC. JARDINES DEL SOL, QUERETARO, QRO. '),
-(2, 'FRANCISCO', 'JUAREZ BAUTISTA', '7728769083', 'frabau17@gmail.com', 'CALLE SENDERO DE LAS ROSAS #234 INT #3, COL. MONTE ALBAN, SAN LUIS POTOSI, SLP.');
+(2, 'LUIS JOEL', 'ALVAREZ ROJAS', '4423767812', 'lui.joe@gmail.com', 'AV. DE LOS CEDROS #456 INT #4, COL. LA ALBORADA, LEON, GTO.'),
+(7, 'PEDRO ALBERTO', 'SANCHEZ MIRAMAR', '4423516578', 'miramar@gmail.com', 'AV. SAUCES #123 INT #3, COL. LA ARBOLEDA, SAN LUIS POTOSI, SLP'),
+(8, 'JUAN LUIS', 'PEREZ NERIDA', '2386795069', 'nel.ju@gmail.com', 'CALLE DOMINO #321, COL. SAN LUIS, LEÓN, GTO');
 
 -- --------------------------------------------------------
 
@@ -63,7 +65,8 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`user_id`, `user_name`, `user_mail`, `user_password`) VALUES
 (1, 'Gael Vivas', 'gaelvivas2004@gmail.com', 'g.vivas2023'),
-(2, 'Juan Pérez', 'jperez@outlook.com', 'j.perez2023');
+(2, 'Juan Pérez', 'jperez@outlook.com', 'j.perez2023'),
+(3, 'admin', 'admin@admin.com', 'admin');
 
 --
 -- Índices para tablas volcadas
@@ -89,13 +92,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT de la tabla `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `employee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

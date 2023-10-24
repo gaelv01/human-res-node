@@ -1,6 +1,4 @@
 window.onload = init;
-var headers = {};
-var url = 'http://localhost:3000';
 
 function init(){
     if (localStorage.getItem("token")) {
@@ -26,4 +24,9 @@ function init(){
     else {
         window.location.href = 'index.html';
     }
+}
+
+function logout (){
+    token = localStorage.clear();
+    window.location.href = 'index.html';
 }

@@ -1,41 +1,39 @@
 window.onload = init;
 
 function init() {
-    if (!localStorage.getItem("token")) {
-        // document.querySelector(".btn-secondary").addEventListener("click", function() {
-        //     window.location.href = "signin.html";
-        // });
-        document.querySelector(".btn-primary").addEventListener('click', login);
-    }
-    else {
-        window.location.href = 'dashboard.html';
-    }
-    
+  if (!localStorage.getItem("token")) {
+    // document.querySelector(".btn-secondary").addEventListener("click", function() {
+    //     window.location.href = "signin.html";
+    // });
+    document.querySelector(".btn-primary").addEventListener("click", login);
+  } else {
+    window.location.href = "dashboard.html";
+  }
 }
 
 function login() {
-    var mail = document.getElementById('input-mail').value;
-    var pass = document.getElementById('input-password').value;
+  var mail = document.getElementById("input-mail").value;
+  var pass = document.getElementById("input-password").value;
 
-    axios({
-        method: 'post',
-        url: 'http://localhost:3000/user/login',
-        data: {
-            user_mail: mail,
-            user_password: pass
-        }
-    }).then(function (res) {
-        if(res.data.code === 200){
-            localStorage.setItem("token", res.data.message);
-            window.location.href = 'dashboard.html';
-        }
-        else if (res.data.code === 401){
-            alert('Wrong mail or password.');
-        }
-        else{
-            alert("Please complete the required fields.")
-        }
-    }).catch(function (err){
-        console.log(err);
+  axios({
+    method: "post",
+    url: "http://localhost:3000/user/login",
+    data: {
+      user_mail: mail,
+      user_password: pass,
+    },
+  })
+    .then(function (res) {
+      if (res.data.code === 200) {
+        localStorage.setItem("token", res.data.message);
+        window.location.href = "dashboard.html";
+      } else if (res.data.code === 401) {
+        alert("Wrong mail or password.");
+      } else {
+        alert("Please complete the required fields.");
+      }
     })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
